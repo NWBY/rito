@@ -29,23 +29,23 @@ $ rito --language=rust --input=src/main.rs
 Passing a string as input and printing to stdout:
 
 ```bash
-$ rito --language=rust --code='fn main() { println!("Hello, world!"); }'
+$ rito --language=rust --code='fn main() { println!("Hello, world!"); }' --full
 ```
 
 Passing a file as input and saving to a file:
 
 ```bash
-$ rito --language=rust --input=src/main.rs --output=output.html
+$ rito --language=rust --input=src/main.rs --output=output.html --full
 ```
 
 Passing a string as input and saving to a file:
 
 ```bash
-$ rito --language rust --code "fn main() { println!(\"Hello, world!\"); }" --output highlighted.html
+$ rito --language rust --code "fn main() { println!(\"Hello, world!\"); }" --output highlighted.html --full
 ```
 
 Reading from stdin:
 
 ```bash
-echo "console.log('Hello, world!');" | rito --language javascript
+echo "console.log('Hello, world!');" | rito --language javascript --full
 ```
