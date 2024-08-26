@@ -1,0 +1,40 @@
+.highlight {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.highlight.diff {
+    grid-template-columns: auto auto 1fr;
+}
+
+.line {
+    display: contents;
+}
+
+.line-number {
+    grid-column: 1;
+    padding: 0 10px;
+    text-align: right;
+    user-select: none;
+}
+
+.diff-symbol {
+    grid-column: 2;
+    padding: 0 5px;
+    user-select: none;
+}
+
+.code {
+    grid-column: 2;
+    padding: 0 10px;
+}
+
+.code pre {
+    margin: 0;
+}
+
+.highlight.diff .code {
+    grid-column: 3;
+}

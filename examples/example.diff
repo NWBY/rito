@@ -1,0 +1,28 @@
+diff --git a/src/user_profile.rs b/src/user_profile.rs
+index 1234567..abcdefg 100644
+--- a/src/user_profile.rs
++++ b/src/user_profile.rs
+@@ -1,15 +1,19 @@
+ struct UserProfile {
+     username: String,
+     email: String,
+-    age: u8,
++    age: Option<u8>,
++    bio: Option<String>,
+ }
+
+ impl UserProfile {
+-    fn new(username: String, email: String, age: u8) -> Self {
++    fn new(username: String, email: String) -> Self {
+         UserProfile {
+             username,
+             email,
+-            age,
++            age: None,
++            bio: None,
+         }
+     }
++
++    fn set_age(&mut self, age: u8) { self.age = Some(age); }
++    fn set_bio(&mut self, bio: String) { self.bio = Some(bio); }
+}
