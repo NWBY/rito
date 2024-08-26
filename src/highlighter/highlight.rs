@@ -4,8 +4,8 @@ use syntect::parsing::SyntaxSet;
 use syntect::util::LinesWithEndings;
 
 pub struct SyntaxHighlighter {
-    syntax_set: SyntaxSet,
-    theme_set: ThemeSet,
+    pub syntax_set: SyntaxSet,
+    pub theme_set: ThemeSet,
 }
 
 impl SyntaxHighlighter {
@@ -22,29 +22,41 @@ impl SyntaxHighlighter {
             .find_syntax_by_token(language)
             .unwrap_or_else(|| self.syntax_set.find_syntax_plain_text());
 
-        let theme = &self.theme_set.themes["base16-ocean.dark"]; // Default theme
+        println!("Using syntax: {}", syntax.name);
 
-        let mut html = String::from("<div class=\"highlight\">");
+        let theme = &self.theme_set.themes["base16-eighties.dark"]; // Default theme
+        let background_color = theme.settings.background;
+        let mut html: String;
+        if let Some(background_color) = background_color {
+            html = format!(
+                "<div class=\"highlight\" style=\"background-color: rgb({}, {}, {}); padding: 1em;\">",
+                background_color.r, background_color.g, background_color.b,
+            );
+        } else {
+            html = String::from("<div class=\"highlight\">");
+        }
+
         let mut line_count = 1;
 
         for line in LinesWithEndings::from(code) {
             let highlighted = highlighted_html_for_string(line, &self.syntax_set, syntax, theme);
 
-            html.push_str("<div class=\"line\">");
+            // html.push_str("<div class=\"line\">");
 
-            if show_line_numbers {
-                html.push_str(&format!(
-                    "<span class=\"line-number\">{}</span>",
-                    line_count
-                ));
-            }
+            // if show_line_numbers {
+            //     html.push_str(&format!(
+            //         "<span class=\"line-number\">{}</span>",
+            //         line_count
+            //     ));
+            // }
 
-            html.push_str(&format!(
-                "<span class=\"code\">{}</span>",
-                highlighted.unwrap()
-            ));
+            // html.push_str(&format!(
+            //     "<span class=\"code\">{}</span>",
+            //     highlighted.unwrap()
+            // ));
 
-            html.push_str("</div>");
+            // html.push_str("</div>");
+            html.push_str(&highlighted.unwrap());
 
             line_count += 1;
         }

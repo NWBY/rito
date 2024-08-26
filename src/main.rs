@@ -18,6 +18,10 @@ struct Opts {
     #[clap(short, long)]
     language: String,
 
+    /// Code string (alternative to input file)
+    #[clap(short, long)]
+    code: Option<String>,
+
     /// Input file (use - for stdin)
     #[clap(short, long)]
     input: Option<String>,
@@ -54,25 +58,19 @@ struct Opts {
 fn main() -> io::Result<()> {
     let opts: Opts = Opts::parse();
     let highlighter = SyntaxHighlighter::new();
-    let theme_manager = ThemeManager::new();
 
     if opts.list_themes {
         println!("Available themes:");
-        for theme in theme_manager.list_themes() {
+        for theme in highlighter.theme_set.themes.keys() {
             println!("- {}", theme);
         }
         return Ok(());
     }
 
-    let theme = if theme_manager.is_valid_theme(&opts.theme) {
-        opts.theme
-    } else {
-        eprintln!("Theme '{}' not found. Using std-light.", opts.theme);
-        "std-light".to_string()
-    };
-
     // Read input
-    let code = if let Some(input) = opts.input {
+    let code = if let Some(code_string) = opts.code {
+        code_string
+    } else if let Some(input) = opts.input {
         if input == "-" {
             let mut buffer = String::new();
             io::stdin().read_to_string(&mut buffer)?;
@@ -94,7 +92,6 @@ fn main() -> io::Result<()> {
     };
 
     let base_css_path = opts.styles_path.join("base.css");
-    let theme_css_path = opts.styles_path.join(format!("{}.css", theme));
 
     let html_output = if opts.full {
         format!(
@@ -104,14 +101,12 @@ fn main() -> io::Result<()> {
     <meta charset="utf-8">
     <title>Rito Syntax Highlighter</title>
     <link rel="stylesheet" href="{}">
-    <link rel="stylesheet" href="{}">
 </head>
 <body>
 {}
 </body>
 </html>"#,
             base_css_path.display(),
-            theme_css_path.display(),
             highlighted
         )
     } else {

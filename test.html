@@ -4,108 +4,74 @@
     <meta charset="utf-8">
     <title>Rito Syntax Highlighter</title>
     <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/std-light.css">
 </head>
 <body>
-<div class="highlight"><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#b48ead;">use </span><span style="color:#c0c5ce;">std::collections::HashMap;
+<div class="highlight" style="background-color: rgb(45, 45, 45); padding: 1em;"><pre style="background-color:#2d2d2d;">
+<span style="color:#d27b53;">&lt;?php
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#b48ead;">struct </span><span style="color:#c0c5ce;">User {
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">class User
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    username: String,
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">{
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    email: String,
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    public $username;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    sign_in_count: </span><span style="color:#b48ead;">u64</span><span style="color:#c0c5ce;">,
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    public $email;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    active: </span><span style="color:#b48ead;">bool</span><span style="color:#c0c5ce;">,
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    public $sign_in_count;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">}
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    public $active;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    function __construct($username, $email, $sign_in_count, $active)
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">let mut</span><span style="color:#c0c5ce;"> users = HashMap::new();
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    {
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">        $this-&gt;username = $username;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">let</span><span style="color:#c0c5ce;"> new_user = User {
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">        $this-&gt;email = $email;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        username: String::from(&quot;</span><span style="color:#a3be8c;">johndoe</span><span style="color:#c0c5ce;">&quot;),
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">        $this-&gt;sign_in_count = $sign_in_count;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        email: String::from(&quot;</span><span style="color:#a3be8c;">john@example.com</span><span style="color:#c0c5ce;">&quot;),
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">        $this-&gt;active = $active;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        sign_in_count: </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">,
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    }
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        active: </span><span style="color:#d08770;">true</span><span style="color:#c0c5ce;">,
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    };
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    function __toString()
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    {
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    users.</span><span style="color:#96b5b4;">insert</span><span style="color:#c0c5ce;">(new_user.username.</span><span style="color:#96b5b4;">clone</span><span style="color:#c0c5ce;">(), new_user);
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">        return $this-&gt;username;
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">    }
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">match</span><span style="color:#c0c5ce;"> users.</span><span style="color:#96b5b4;">get</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">johndoe</span><span style="color:#c0c5ce;">&quot;) {
+<pre style="background-color:#2d2d2d;">
+<span style="color:#d3d0c8;">}
 </span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        Some(user) =&gt; println!(&quot;</span><span style="color:#a3be8c;">Found user: </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;"> (</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">)</span><span style="color:#c0c5ce;">&quot;, user.username, user.email),
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        None =&gt; println!(&quot;</span><span style="color:#a3be8c;">User not found</span><span style="color:#c0c5ce;">&quot;),
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    }
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    </span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(username, user) in &amp;users {
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        println!(
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">            &quot;</span><span style="color:#a3be8c;">User {} has signed in {} times</span><span style="color:#c0c5ce;">&quot;,
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">            username, user.sign_in_count
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">        );
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">    }
-</span></pre>
-</span></div><div class="line"><span class="code"><pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">}
-</span></pre>
-</span></div></div>
+</div>
 </body>
 </html>
